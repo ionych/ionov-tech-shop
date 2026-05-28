@@ -76,6 +76,10 @@ mvn spring-boot:run -DskipTests
 5. Запуск тестов:
 ```bash
 mvn test
+
+Результат: 27 тестов, BUILD SUCCESS
+
+Покрытие кода: Entity 93%, Security 64% (JaCoCo)
 ```
 
 API Endpoints

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IONOV TECH SHOP — магазин электроники</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { background: #f5f6fa; }
+        .navbar { background: #1a1a2e; }
+        .hero { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); color: white; padding: 60px 0; }
+        .btn-blue { background: #2563eb; border: none; color: white; }
+        .btn-blue:hover { background: #1d4ed8; color: white; }
+        footer { background: #1a1a2e; color: #aaa; padding: 20px 0; text-align: center; margin-top: 40px; }
+        .card { border: none; transition: transform 0.2s; }
+        .card:hover { transform: translateY(-5px); }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="/" style="color: #2563eb;">IONOV TECH SHOP</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="/catalog">Каталог</a></li>
+                <li class="nav-item"><a class="nav-link" href="/cart">Корзина</a></li>
+                <li class="nav-item"><a class="nav-link" href="/orders">Заказы</a></li>
+                <span id="guestLinks">
+                    <li class="nav-item"><a class="nav-link btn btn-outline-light btn-sm ms-2" href="/login">Войти</a></li>
+                    <li class="nav-item"><a class="nav-link btn btn-blue btn-sm ms-2" href="/register">Регистрация</a></li>
+                </span>
+                <span id="userLinks" style="display:none;">
+                    <li class="nav-item"><span class="nav-link text-light fw-bold" id="userGreeting">Привет</span></li>
+                    <li class="nav-item"><a class="nav-link btn btn-outline-danger btn-sm ms-2" href="#" onclick="logout()">Выйти</a></li>
+                </span>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <h1 class="display-4 fw-bold">IONOV TECH SHOP</h1>
+                <p class="lead">Техника 2026 года. Смартфоны, ноутбуки, наушники, планшеты и аксессуары. Быстрая доставка по России.</p>
+                <a href="/catalog" class="btn btn-blue btn-lg">В каталог</a>
+            </div>
+            <div class="col-md-6 text-center">
+                <img src="https://i.pinimg.com/736x/c5/bb/3f/c5bb3f9b7d736d38695ccb21bb148b43.jpg" alt="Электроника" style="border-radius: 15px; max-width: 100%;">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="container py-5">
+    <h2 class="text-center mb-4">Популярные товары</h2>
+    <div class="row" id="popularProducts">
+        <div class="col-12 text-center"><div class="spinner-border text-primary"></div></div>
+    </div>
+</section>
+
+<footer>
+    <p>IONOV TECH SHOP © 2026</p>
+    <p style="font-size: 0.8em;">Made by ION</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    const token = localStorage.getItem('token');
+    if (token) {
+        document.getElementById('guestLinks').style.display = 'none';
+        document.getElementById('userLinks').style.display = 'inline';
+    }
+    function logout() { localStorage.clear(); window.location.href = '/'; }
+
+    fetch('/api/products')
+        .then(r => r.json())
+        .then(data => {
+            let html = '';
+            data.slice(0, 4).forEach(p => {
+                html += `<div class="col-md-3 mb-4">
+                <div class="card shadow-sm d-flex flex-column" style="height: 100%;">
+                    <div style="height: 180px; display: flex; align-items: center; justify-content: center; background: white;">
+                        <img src="${p.imageUrl}" style="max-width: 100%; max-height: 160px; object-fit: contain;" alt="${p.name}">
+                    </div>
+                    <div class="card-body d-flex flex-column">
+                        <h6>${p.name}</h6>
+                        <p class="text-muted small flex-grow-1">${p.description ? p.description.substring(0, 50) : ''}...</p>
+                        <strong style="color: #2563eb;" class="mt-auto">${p.price} ₽</strong>
+                    </div>
+                </div>
+            </div>`;
+            });
+            document.getElementById('popularProducts').innerHTML = html;
+        });
+</script>
+</body>
+</html>

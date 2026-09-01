@@ -99,6 +99,53 @@ GET	/api/orders	   Авторизованные
 POST	/api/orders	   Авторизованные
 GET	/actuator	        Все
 ```
+
+---
+
+<h1>QA-артефакты </h1>
+
+<h2>Функциональные проверки</h2>
+
+<p>Авторизация и аутентификация</p>
+
+<p>Ролевая модель: CLIENT vs ADMIN</p>
+
+<p>CRUD операции с товарами и заказами </p>
+
+<p>Защита от прямого доступа к корзине и заказам без токена</p>
+
+<p>Валидация форм</p>
+
+---
+
+<h1>Результаты тестирования (В процессе)</h1>
+<ul>
+    <li>Test Run: </li>
+    <li>Всего тест-кейсов: </li>
+    <li>Успешно:  </li>
+    <li>Провалено: </li>
+    <li>Баги в Jira: </li>
+</ul>
+
+<h1>Артефакты тестирования</h1>
+<ul>
+     <li><a href="https://docs.google.com/document/d/1xQ6AEsPKl4vLgF6e0yciA64ST2SyKwPN1u5Hq2R54ZY/edit?usp=sharing">Тест-план </a> — Тест-план Ionov Tech Shop</li> 
+     <li><a href="">Чек-лист (В процессе)</a> — Чек-лист Ionov Tech Shop</li>
+     <li><a href="">Тест-кейсы (В процессе)</a> — Тест-кейсы в системе управления тестированием Test IT</li>
+     <li> <a href="">Баг-репорты (Jira) (В процессе)</a> — Список багов, их оформление в Jira</li>
+     <li><a href="">Скриншоты тестирования (В процессе)</a>  — Тестирование и работа в DBeaver, Charles Proxy, Postman, Chrome DevTools, Интерфейс веб-приложения, Баги</li>
+     <li> <a href="">Коллекция запросов(В процессе)</a> — Коллекция запросов в Postman</li>
+     <li><a href="">Результаты тестирования (В процессе)</a> — Результаты тестирования в Test IT</li>
+     <li> <a href="https://drive.google.com/file/d/1xYJ5wfdIssJGAM-u_acXIxUKyIDNRsjD/view?usp=sharing">Итоговый отчёт о тестировании (В процессе)</a> — Итоговый отчёт о тестировании Ionov Tech Shop</li> 
+     <li> <a href="">Все артефакты тестирования Ionov Tech Shop (В процессе)</a></li>
+    
+</ul>
+
+---
+
+
+
+
 ### Автор
 ION 
 

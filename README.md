@@ -136,7 +136,7 @@ GET	/actuator	        Все
      <li><a href="">Скриншоты тестирования (В процессе)</a>  — Тестирование и работа в DBeaver, Charles Proxy, Postman, Chrome DevTools, Интерфейс веб-приложения, Баги</li>
      <li> <a href="">Коллекция запросов(В процессе)</a> — Коллекция запросов в Postman</li>
      <li><a href="">Результаты тестирования (В процессе)</a> — Результаты тестирования в Test IT</li>
-     <li> <a href="https://drive.google.com/file/d/1xYJ5wfdIssJGAM-u_acXIxUKyIDNRsjD/view?usp=sharing">Итоговый отчёт о тестировании (В процессе)</a> — Итоговый отчёт о тестировании Ionov Tech Shop</li> 
+     <li> <a href="">Итоговый отчёт о тестировании (В процессе)</a> — Итоговый отчёт о тестировании Ionov Tech Shop</li> 
      <li> <a href="">Все артефакты тестирования Ionov Tech Shop (В процессе)</a></li>
     
 </ul>
